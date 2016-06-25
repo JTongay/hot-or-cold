@@ -157,3 +157,37 @@ After each guess, a counter is displayed, showing how many
 guesses you've had, as well as all the numbers you already
 guessed.
 */
+
+/* The app starts with the newGame() function, it makes the game play when the website is first loaded.
+It then begins an if statement where it states that if the variable found is "not false", then use the 
+checkNum function, to check if the number selected is valid. In that function, it states if the value
+is NaN (not a number) then use the getFeedback() function to say "You have to choose a number!". If the
+value is less than 1 or greater than 100, it will say "It has to be a number between 1 and 100!". With the
+$.trim(userGuess) === '', it's stating that if the textbox is empty, getFeedback() will spit out "You have
+to enter something!". During this whole process, the clearBox() function clears the text box after each
+selection. The boxFocus() function creates a focus on the textbox in the form selector. 
+
+After the checkNum() function is finished checking for the correct value, it will trigger the 
+guessCounter and guessCount() function. We set the guessCounter value to 0 intially, and we get it to
+increment itself by 1 using guessCounter++. In the guessCount function, it takes a counter as an argument,
+and changes the count in the '#count' id by 1. In the main function, the argument for guessCount() is 
+guessCounter (which if you remember starts at 0, and increments itself by 1.).
+
+When a valid number is selected, it will append itself to the 'ul#guessList' list. 
+
+We then use the guessFlag variable, which initially is used in the checkNum() function. If it returned
+false, we use !false, which means "not false" basically saying to continue running the code. We then 
+changed this variable to set it equal to the checkTemp() function with (Math.abs(randomNum-userGuess))
+as its argument. Math.abs() means it gets the absolute value of a number, which means it won't be a 
+negative number. The random number is stored in the newGame() function and its set to the generateNum()
+function. Obviously then, we take the random number and subtract the userGuess from it to get the absolute
+value of a number.
+
+That number goes through all the if statements in the checkTemp() function to see if whatever number was 
+guessed is hot or cold using all of the different compare statements. When you finally get the number
+correctly, the condition is satisfied and will then trigger the else portion of the main function. It 
+will then use the getFeedback() function to say "You already won! You have to start a new game!". This
+will make it to where you can't put anymore guesses into the textbox, because, you already won.
+
+The new game button is triggered with the newGame() function. This sets all of the necessary values back
+to their original values needed to make this game work. */
